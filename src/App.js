@@ -3,10 +3,11 @@ import AllMeetupsPage from "./pages/AllMeetups";
 import FavoritesPage from "./pages/Favorites";
 import NewMeetupPage from "./pages/NewMeetup";
 import MainNavigation from "./components/layout/MainNavigation";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
-    <div>
+    <Layout>
       <MainNavigation />
       <Switch>
         <Route path="/" exact>
@@ -19,7 +20,7 @@ function App() {
           <NewMeetupPage />
         </Route>
       </Switch>
-    </div>
+    </Layout>
   );
 }
 
