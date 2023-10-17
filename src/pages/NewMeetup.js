@@ -1,8 +1,14 @@
+import NewMeetupForm from "../components/meetups/NewMeetupForm";
+
 function NewMeetupPage() {
+    function onAddMeetupHandler(meetupData) {
+    }
+
     return (
-        <div>
-            <h1>New Meetup</h1>
-        </div>
+        <section>
+            <h1>Add New Meetup</h1>
+            <NewMeetupForm onAddMeetup={onAddMeetupHandler} />
+        </section>
     );
 }
 
