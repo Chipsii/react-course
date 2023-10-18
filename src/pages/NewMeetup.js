@@ -1,15 +1,27 @@
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
+import { useHistory } from "react-router-dom";
 
 function NewMeetupPage() {
-    function onAddMeetupHandler(meetupData) {
-    }
+  const history = useHistory();
 
-    return (
-        <section>
-            <h1>Add New Meetup</h1>
-            <NewMeetupForm onAddMeetup={onAddMeetupHandler} />
-        </section>
-    );
+  function onAddMeetupHandler(meetupData) {
+    fetch({
+      method: "POST",
+      body: JSON.stringify(meetupData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      history.replace("/");
+    });
+  }
+
+  return (
+    <section>
+      <h1>Add New Meetup</h1>
+      <NewMeetupForm onAddMeetup={onAddMeetupHandler} />
+    </section>
+  );
 }
 
 export default NewMeetupPage;
